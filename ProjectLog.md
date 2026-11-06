@@ -19,3 +19,7 @@ in different scenarios of input
 * Created classes in drone.py that holds each of the main components, the overall drone class accounts for some of the external components, and the following classes are particular to each main component (Frame, Motor, Battery, Flight Controller, Propellor, Antenna). I created a final class for the external components, jsut so they are accounted for.
 * In mass_properties.py, I created functions to calculate total mass, center of mass, and the inertia tensor. These functions will be used in the drone dynamics that I will work on later.
 * Created a test case for the mass_properties file and tested the total mass function.
+
+*Day 4*
+* Testing the other two mass_properties.py functions in the test_mass_prop.py file. Center of mass test and moment of inertia test failed because there is no default class, so that is a capability I will add
+* Solved the first test case failure by adding extra component values so default case doesn't need to be called.

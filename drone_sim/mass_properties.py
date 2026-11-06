@@ -2,12 +2,17 @@
 
 "d -> drone, f -> frame, m -> motors, b -> battery, fc -> flight controller, p -> propellers, a -> antennas"
 
+
 import numpy as np
 
+#Logic for total mass: sum the masses of all components (drone, frame, motors, battery, flight controller, propellers, antennas).
 def calculate_total_mass(d, f, m, b, fc, p, a):
     """Calculate the total mass of the drone."""
     return d.get_total_mass() + f.get_mass() + sum(motor.get_mass() for motor in m) + b.get_mass() + fc.get_mass() + sum(propeller.get_mass() for propeller in p) + sum(antenna.get_mass() for antenna in a)
 
+
+#Logic for center of mass: calculate the weighted average position of all components, by multiplying each component's mass by its position, 
+#summing these products, and dividing by the total mass.
 def calculate_center_of_mass(d, f, m, b, fc, p, a):
     """Calculate the center of mass of the drone."""
     total_mass = calculate_total_mass(d, f, m, b, fc, p, a)
